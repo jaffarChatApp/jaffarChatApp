@@ -1,0 +1,17 @@
+<div class="pageContainer">
+    <div layout="row" layout-wrap class="md-padding">
+        <div flex="25" class="listArea" flex-xs="100" data-ng-repeat="user in userList track by $index" data-ng-click="messageView(user)">
+            <md-card class="listInnerArea">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline" data-ng-bind="user.name"></span>
+                        <span class="md-subhead" data-ng-bind="user.mobile"></span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media"></div>
+                    </md-card-title-media>
+                </md-card-title>
+            </md-card>
+        </div>
+    </div>
+</div>
