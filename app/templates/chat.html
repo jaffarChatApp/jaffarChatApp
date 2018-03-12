@@ -8,6 +8,8 @@
             <div layout="row" layout-padding data-ng-repeat="chat in chatList" data-ng-class="{'layout-align-end-end':chat.fromUser == messageData.fromUser}" id="{{chat.msgId}}">
                 <!--<div><i class="material-icons">email</i></div>-->
                 <div class="msgArea" data-ng-class="{'changeColor':chat.fromUser == messageData.fromUser}">
+                    <div class="triangle-left" data-ng-if="chat.fromUser != messageData.fromUser"></div>
+                    <div class="triangle-right" data-ng-if="chat.fromUser == messageData.fromUser"></div>
                     <!--<div class="msgNameArea">
                         <div data-ng-bind="chat.recieverName" data-ng-if="chat.fromUser != messageData.fromUser"> </div>
                         <div data-ng-bind="chat.senderName" data-ng-if="chat.fromUser == messageData.fromUser"> </div>
