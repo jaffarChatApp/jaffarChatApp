@@ -1,6 +1,6 @@
 <div class="pageContainer">
     <div layout="row" layout-wrap class="md-padding">
-        <div flex="25" class="listArea" flex-xs="100" data-ng-repeat="user in userList track by $index" data-ng-click="messageView(user)">
+        <div flex="25" class="listArea" flex-xs="100" data-ng-repeat="user in userList track by $index" data-ng-click="messageView(user)" data-ng-if="userData.userId != user.userId">
             <md-card class="listInnerArea">
                 <md-card-title>
                     <md-card-title-text>
