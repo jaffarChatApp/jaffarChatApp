@@ -42,6 +42,18 @@
         margin-top: 22px;
     }
 
+    .md-button {
+        line-height: 5px;
+    }
+
+    .webcamArea {
+        padding: 15px;
+    }
+
+    md-input-container {
+        width: 50%;
+    }
+
 </style>
 <!--Loader Area-->
 <div class="loaderArea" data-ng-if="loading">
@@ -51,27 +63,33 @@
 <div class="webcamArea">
 
     <div class="demos">
-        <h1 style="margin-top: 2.5em;">Capture video data</h1>
+        <h1>Capture video data</h1>
         <div layout="row" layout-padding>
 
             <div flex="50">
                 <webcam on-stream="onStream(stream)" on-streaming="onSuccess()" on-error="onError(err)" channel="channel"> </webcam>
+                <md-button class="md-raised md-primary" ng-click="makeSnapshot()">Take snapshot!</md-button>
             </div>
             <div flex="50">
                 <div layout="row" layout-padding>
-                    <label>Pos X <input type="number" ng-model="patOpts.x"></label>
+                    <md-input-container class="md-block m0">
+                        <label>Pos X </label><input type="number" ng-model="patOpts.x">
+                    </md-input-container>
                 </div>
                 <div layout="row" layout-padding>
-                    <label>Pos Y <input type="number" ng-model="patOpts.y"></label>
+                    <md-input-container class="md-block m0">
+                        <label>Pos Y </label><input type="number" ng-model="patOpts.y">
+                    </md-input-container>
                 </div>
                 <div layout="row" layout-padding>
-                    <label>Width <input type="number" ng-model="patOpts.w"></label>
+                    <md-input-container class="md-block m0">
+                        <label>Width </label><input type="number" ng-model="patOpts.w">
+                    </md-input-container>
                 </div>
                 <div layout="row" layout-padding>
-                    <label>Height <input type="number" ng-model="patOpts.h"></label>
-                </div>
-                <div layout="row" layout-padding>
-                    <md-button class="md-raised md-primary" ng-click="makeSnapshot()">Take snapshot!</md-button>
+                    <md-input-container class="md-block m0">
+                        <label>Height </label><input type="number" ng-model="patOpts.h">
+                    </md-input-container>
                 </div>
             </div>
         </div>
@@ -87,7 +105,9 @@
                     <md-button class="btn btn-small" ng-click="showBase64 = !showBase64">Show as base64 encoded URL</md-button>
                 </div>
                 <div layout="row" layout-padding>
-                    <textarea class="snapshot-data ng-pristine ng-valid" ng-model="snapshotData" ng-show="showBase64" style=""></textarea>
+                    <md-input-container class="md-block m0">
+                        <textarea class="snapshot-data ng-pristine ng-valid" ng-model="snapshotData" ng-show="showBase64" style=""></textarea>
+                    </md-input-container>
                 </div>
             </div>
         </div>
