@@ -147,4 +147,21 @@ ChatApp.controller('appCtrl', ['$scope', '$rootScope', '$http', '$state', '$sess
         $scope.title = $state.current.title;
         return ($scope.title);
     };
+
+    $scope.myChannel = {
+        // the fields below are all optional
+        videoHeight: 800,
+        videoWidth: 600,
+        video: null // Will reference the video element on success
+    };
+
+    $scope.onError = function (err) {
+        console.log("err", err);
+    };
+    $scope.onStream = function (stream) {
+        console.log("stream", stream);
+    };
+    $scope.onSuccess = function () {
+        console.log("onSuccess");
+    };
 }]);
