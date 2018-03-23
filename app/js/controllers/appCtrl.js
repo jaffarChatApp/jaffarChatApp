@@ -1,6 +1,6 @@
 ChatApp.controller('appCtrl', ['$scope', '$rootScope', '$http', '$state', '$sessionStorage', '$filter', '$mdToast', '$mdMenu', 'CONFIG', function ($scope, $rootScope, $http, $state, $sessionStorage, $filter, $mdToast, $mdMenu, CONFIG) {
     $scope.selected = 'dashboard';
-    $scope.showLoginArea = true;
+    $scope.showLoginArea = false;
     $scope.toggleList = function () {
         $mdSidenav('left').toggle();
     };
