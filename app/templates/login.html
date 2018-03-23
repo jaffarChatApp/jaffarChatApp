@@ -47,6 +47,51 @@
 <div class="loaderArea" data-ng-if="loading">
     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
+
+<div class="webcamArea">
+    <webcam on-stream="onStream(stream)" on-streaming="onSuccess()" on-error="onError(err)" channel="myChannel"> </webcam>
+    <div class="demos">
+        <h1 style="margin-top: 2.5em;">Capture video data</h1>
+        <div layout="row" layout-padding>
+            <div flex="50">
+                <div layout="row" layout-padding>
+                    <label>Pos X <input type="number" ng-model="patOpts.x"></label>
+                </div>
+                <div layout="row" layout-padding>
+                    <label>Pos Y <input type="number" ng-model="patOpts.y"></label>
+                </div>
+                <div layout="row" layout-padding>
+                    <label>Width <input type="number" ng-model="patOpts.w"></label>
+                </div>
+                <div layout="row" layout-padding>
+                    <label>Height <input type="number" ng-model="patOpts.h"></label>
+                </div>
+                <div layout="row" layout-padding>
+                    <md-button class="md-raised md-primary" ng-click="makeSnapshot()">Take snapshot!</md-button>
+                </div>
+            </div>
+            <div flex="50">
+                <canvas id="snapshot" class="well pull-right"></canvas>
+                <md-button ng-click="downloadSnapshot(snapshotData)" ng-disabled="!snapshotData" class="md-raised md-primary" disabled="disabled">Download ^^</md-button>
+                <md-button class="btn btn-small" ng-click="showBase64 = !showBase64">Show as base64 encoded URL</md-button>
+                <textarea class="snapshot-data ng-pristine ng-valid" ng-model="snapshotData" ng-show="showBase64" style=""></textarea>
+            </div>
+        </div>
+
+        <h1 style="margin-top: 2.5em;">Play with video in real time</h1>
+        <div class="row-fluid">
+            <div class="span6">
+                <label class="checkbox">Detect edges<input type="checkbox" ng-model="edgeDetection" class="ng-pristine ng-valid"></label>
+                <label class="checkbox">Mono<input type="checkbox" ng-disabled="!edgeDetection" ng-model="mono" class="ng-pristine ng-valid" disabled="disabled"></label>
+                <label class="checkbox">Invert<input type="checkbox" ng-disabled="!edgeDetection" ng-model="invert" class="ng-pristine ng-valid" disabled="disabled"></label>
+                <a href="http://www.pixastic.com/lib/" target="_blank">Made with Pixastic</a>
+            </div>
+            <div class="span6">
+                <canvas id="result" class="well pull-right"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="registerPageContainer">
     <div class="registerInputArea animationIf" data-ng-if="showLoginArea">
         <h1 class="tac lh10">Login Here</h1>
@@ -66,41 +111,6 @@
                 </div>
             </div>
         </form>
-
-        <webcam on-stream="onStream(stream)" on-streaming="onSuccess()" on-error="onError(err)" channel="channel"> </webcam>
-
-        <div class="demos" ng-show="showDemos" style="/* display: none; */">
-            <h1 style="margin-top: 2.5em;">Capture video data</h1>
-            <div class="row-fluid">
-                <div class="span6">
-                    <label>Pos X <input type="number" ng-model="patOpts.x" class="ng-pristine ng-valid ng-valid-number"></label>
-                    <label>Pos Y <input type="number" ng-model="patOpts.y" class="ng-pristine ng-valid ng-valid-number"></label>
-                    <label>Width <input type="number" ng-model="patOpts.w" class="ng-pristine ng-valid ng-valid-number"></label>
-                    <label>Height <input type="number" ng-model="patOpts.h" class="ng-pristine ng-valid ng-valid-number"></label>
-                    <md-button class="md-raised md-primary" ng-click="makeSnapshot()">Take snapshot!</md-button>
-                </div>
-                <div class="span6">
-                    <canvas id="snapshot" class="well pull-right"></canvas>
-                    <md-button ng-click="downloadSnapshot(snapshotData)" ng-disabled="!snapshotData" class="md-raised md-primary" disabled="disabled">Download ^^</md-button>
-                    <md-button class="btn btn-small" ng-click="showBase64 = !showBase64">Show as base64 encoded URL</md-button>
-                    <textarea class="snapshot-data ng-pristine ng-valid" ng-model="snapshotData" ng-show="showBase64" style=""></textarea>
-                </div>
-            </div>
-
-            <h1 style="margin-top: 2.5em;">Play with video in real time</h1>
-            <div class="row-fluid">
-                <div class="span6">
-                    <label class="checkbox">Detect edges<input type="checkbox" ng-model="edgeDetection" class="ng-pristine ng-valid"></label>
-                    <label class="checkbox">Mono<input type="checkbox" ng-disabled="!edgeDetection" ng-model="mono" class="ng-pristine ng-valid" disabled="disabled"></label>
-                    <label class="checkbox">Invert<input type="checkbox" ng-disabled="!edgeDetection" ng-model="invert" class="ng-pristine ng-valid" disabled="disabled"></label>
-                    <a href="http://www.pixastic.com/lib/" target="_blank">Made with Pixastic</a>
-                </div>
-                <div class="span6">
-                    <canvas id="result" class="well pull-right"></canvas>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <div class="registerInputArea animationIf" data-ng-if="showRegisterArea">
