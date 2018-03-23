@@ -49,10 +49,14 @@
 </div>
 
 <div class="webcamArea">
-    <webcam on-stream="onStream(stream)" on-streaming="onSuccess()" on-error="onError(err)" channel="channel"> </webcam>
+
     <div class="demos">
         <h1 style="margin-top: 2.5em;">Capture video data</h1>
         <div layout="row" layout-padding>
+
+            <div flex="50">
+                <webcam on-stream="onStream(stream)" on-streaming="onSuccess()" on-error="onError(err)" channel="channel"> </webcam>
+            </div>
             <div flex="50">
                 <div layout="row" layout-padding>
                     <label>Pos X <input type="number" ng-model="patOpts.x"></label>
@@ -70,10 +74,12 @@
                     <md-button class="md-raised md-primary" ng-click="makeSnapshot()">Take snapshot!</md-button>
                 </div>
             </div>
+        </div>
+        <div layout="row" layout-padding>
             <div flex="50">
-                <div layout="row" layout-padding>
-                    <canvas id="snapshot" class="tac"></canvas>
-                </div>
+                <canvas id="snapshot" class="tac"></canvas>
+            </div>
+            <div flex="50">
                 <div layout="row" layout-padding>
                     <md-button ng-click="downloadSnapshot(snapshotData)" ng-disabled="!snapshotData" class="md-raised md-primary" disabled="disabled">Download ^^</md-button>
                 </div>
