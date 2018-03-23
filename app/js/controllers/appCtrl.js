@@ -241,5 +241,4 @@ ChatApp.controller('appCtrl', ['$scope', '$rootScope', '$http', '$state', '$sess
     var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
         $scope.snapshotData = imgBase64;
     };
-
 }]);
