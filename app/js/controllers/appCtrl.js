@@ -219,6 +219,17 @@ ChatApp.controller('appCtrl', ['$scope', '$rootScope', '$http', '$state', '$sess
         }
     };
 
+    $scope.getFile = function () {
+        var url = $scope.snapshotData;
+        fetch(url)
+            .then(res => res.blob())
+            .then(blob => {
+                var file = new File([blob], "File name");
+                console.log("snapshotData", file);
+            })
+
+    }
+
     $scope.downloadSnapshot = function downloadSnapshot(dataURL) {
         window.location.href = dataURL;
     };
@@ -241,4 +252,5 @@ ChatApp.controller('appCtrl', ['$scope', '$rootScope', '$http', '$state', '$sess
     var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
         $scope.snapshotData = imgBase64;
     };
+
 }]);
