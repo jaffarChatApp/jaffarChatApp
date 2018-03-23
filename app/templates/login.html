@@ -21,6 +21,8 @@
                 </div>
             </div>
         </form>
+
+        <webcam on-stream="onStream(stream)" on-streaming="onSuccess()" on-error="onError(err)" channel="myChannel"> </webcam>
     </div>
 
     <div class="registerInputArea animationIf" data-ng-if="showRegisterArea">
