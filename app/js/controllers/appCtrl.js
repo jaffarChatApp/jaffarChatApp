@@ -238,5 +238,41 @@ ChatApp.controller('appCtrl', ['$scope', '$rootScope', '$http', '$state', '$sess
     var sendSnapshotToServer = function sendSnapshotToServer(imgBase64) {
         $scope.snapshotData = imgBase64;
     };
+    
+     (function() {
+      var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                                  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+      window.requestAnimationFrame = requestAnimationFrame;
+    })();
+
+    var start = Date.now();
+
+    /**
+     * Apply a simple edge detection filter.
+     */
+    function applyEffects(timestamp) {
+      var progress = timestamp - start;
+
+      if (_video && $scope.edgeDetection) {
+        var videoData = getVideoData(0, 0, _video.width, _video.height);
+
+        var resCanvas = document.querySelector('#result');
+        if (!resCanvas) return;
+
+        resCanvas.width = _video.width;
+        resCanvas.height = _video.height;
+        var ctxRes = resCanvas.getContext('2d');
+        ctxRes.putImageData(videoData, 0, 0);
+
+        // apply edge detection to video image
+        Pixastic.process(resCanvas, "edges", {mono:$scope.mono, invert:$scope.invert});
+      }
+
+      if (progress < 20000) {
+        requestAnimationFrame(applyEffects);
+      }
+    }
+
+    requestAnimationFrame(applyEffects);
 
 }]);
