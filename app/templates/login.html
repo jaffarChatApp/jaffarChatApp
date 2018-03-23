@@ -71,25 +71,44 @@
                 </div>
             </div>
             <div flex="50">
-                <canvas id="snapshot" class="well pull-right"></canvas>
-                <md-button ng-click="downloadSnapshot(snapshotData)" ng-disabled="!snapshotData" class="md-raised md-primary" disabled="disabled">Download ^^</md-button>
-                <md-button class="btn btn-small" ng-click="showBase64 = !showBase64">Show as base64 encoded URL</md-button>
-                <textarea class="snapshot-data ng-pristine ng-valid" ng-model="snapshotData" ng-show="showBase64" style=""></textarea>
+                <div layout="row" layout-padding>
+                    <canvas id="snapshot" class="tac"></canvas>
+                </div>
+                <div layout="row" layout-padding>
+                    <md-button ng-click="downloadSnapshot(snapshotData)" ng-disabled="!snapshotData" class="md-raised md-primary" disabled="disabled">Download ^^</md-button>
+                </div>
+                <div layout="row" layout-padding>
+                    <md-button class="btn btn-small" ng-click="showBase64 = !showBase64">Show as base64 encoded URL</md-button>
+                </div>
+                <div layout="row" layout-padding>
+                    <textarea class="snapshot-data ng-pristine ng-valid" ng-model="snapshotData" ng-show="showBase64" style=""></textarea>
+                </div>
             </div>
         </div>
 
-        <h1 style="margin-top: 2.5em;">Play with video in real time</h1>
-        <div class="row-fluid">
-            <div class="span6">
-                <label class="checkbox">Detect edges<input type="checkbox" ng-model="edgeDetection" class="ng-pristine ng-valid"></label>
-                <label class="checkbox">Mono<input type="checkbox" ng-disabled="!edgeDetection" ng-model="mono" class="ng-pristine ng-valid" disabled="disabled"></label>
-                <label class="checkbox">Invert<input type="checkbox" ng-disabled="!edgeDetection" ng-model="invert" class="ng-pristine ng-valid" disabled="disabled"></label>
-                <a href="http://www.pixastic.com/lib/" target="_blank">Made with Pixastic</a>
+        <!--<h1 style="margin-top: 2.5em;">Play with video in real time</h1>
+        <div layout="row" layout-padding>
+            <div flex="50">
+                <div layout="row" layout-padding>
+                    <label class="checkbox">Detect edges
+                    <input type="checkbox" ng-model="edgeDetection" class="ng-pristine ng-valid"></label>
+                </div>
+                <div layout="row" layout-padding>
+                    <label class="checkbox">Mono
+                    <input type="checkbox" ng-disabled="!edgeDetection" ng-model="mono" class="ng-pristine ng-valid" disabled="disabled"></label>
+                </div>
+                <div layout="row" layout-padding>
+                    <label class="checkbox">Invert
+                    <input type="checkbox" ng-disabled="!edgeDetection" ng-model="invert" class="ng-pristine ng-valid" disabled="disabled"></label>
+                </div>
+                <div layout="row" layout-padding>
+                    <a href="http://www.pixastic.com/lib/" target="_blank">Made with Pixastic</a>
+                </div>
             </div>
-            <div class="span6">
+            <div flex="50">
                 <canvas id="result" class="well pull-right"></canvas>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
 <div class="registerPageContainer">
