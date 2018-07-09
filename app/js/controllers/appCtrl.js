@@ -1,4 +1,4 @@
-ChatApp.controller('appCtrl', ['$scope', '$rootScope', '$http', '$state', '$sessionStorage', '$filter', '$mdToast', '$mdMenu', 'CONFIG', function ($scope, $rootScope, $http, $state, $sessionStorage, $filter, $mdToast, $mdMenu, CONFIG) {
+ChatApp.controller('appCtrl', ['$scope', '$rootScope', '$http', '$state', '$sessionStorage', '$filter', '$mdToast', '$mdMenu', '$timeout', 'CONFIG', function ($scope, $rootScope, $http, $state, $sessionStorage, $filter, $mdToast, $mdMenu, $timeout, CONFIG) {
     $scope.selected = 'dashboard';
     $scope.showLoginArea = true;
     $scope.toggleList = function () {
