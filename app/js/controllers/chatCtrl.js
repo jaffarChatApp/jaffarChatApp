@@ -14,6 +14,7 @@ ChatApp.controller('chatCtrl', ['$scope', '$rootScope', '$http', '$state', '$ses
 
     /*Get User Chats*/
     $scope.getChatList = function (event) {
+        console.log("$stateParams", $stateParams);
         $scope.loading = true;
         var getChats = {
             fromUser: $stateParams.fromUserId,
