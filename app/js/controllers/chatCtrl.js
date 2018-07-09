@@ -49,7 +49,8 @@ ChatApp.controller('chatCtrl', ['$scope', '$rootScope', '$http', '$state', '$ses
 
 
     /*Send Message*/
-    $scope.sendMessage = function (item) {
+    $scope.sendMessage = function (event) {
+        var message = $scope.messageData;
         $http({
             method: 'POST',
             url: CONFIG.rootUrl + 'senMessage',
@@ -59,9 +60,34 @@ ChatApp.controller('chatCtrl', ['$scope', '$rootScope', '$http', '$state', '$ses
             data: $scope.messageData
         }).then(function (response) {
             if (response.data.success == true) {
+                $scope.sendNotification(event, message);
                 $scope.messageData.message = "";
             }
         });
+    }
+
+    $scope.sendNotification = function (event, message) {
+        //var url = "https://jaffarchatapp.github.io/jaffarChatApp/#!/home/chat/25sl29juhjxbima/vsncvm18d71z1x6"
+        var sendData = {
+            "app_id": CONFIG.app_id,
+            "contents": {
+                "en": message.message
+            },
+            "included_segments": ["Active Users", "Inactive Users"],
+            "url": "https://jaffarchatapp.github.io/jaffarChatApp/#!/home/chat/25sl29juhjxbima/vsncvm18d71z1x6"
+            //"included_segments": ["All"]
+        }
+        $http({
+            method: 'POST',
+            url: CONFIG.notifyUrl,
+            headers: {
+                'Authorization': CONFIG.REST_API_KEY,
+                'Content-Type': 'application/json'
+            },
+            data: sendData
+        }).then(function (response) {
+            console.log("response", response);
+        })
     }
 
     /*Websocket Connection*/

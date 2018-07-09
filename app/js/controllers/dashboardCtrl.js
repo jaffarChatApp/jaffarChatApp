@@ -25,7 +25,6 @@ ChatApp.controller('dashboardCtrl', ['$scope', '$rootScope', '$http', '$state', 
     $scope.getUserList();
 
     $scope.messageView = function (item) {
-        console.log("item", item);
         $sessionStorage.recieverData = item;
         $state.go('home.chatView', {
             fromUserId: $scope.userData.userId,
