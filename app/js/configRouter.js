@@ -38,8 +38,16 @@ ChatApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locat
         controller: 'chatCtrl',
         title: 'Chat-Page',
         params: {
-            "fromUserName": null,
-            "toUserName": null
+            fromUserName: {
+                value: null,
+                squash: true
+            },
+            toUserName: {
+                value: null,
+                squash: true
+            }
+            //"fromUserName": null,
+            //"toUserName": null
         }
     });
 
