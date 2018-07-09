@@ -48,6 +48,19 @@ ChatApp.controller('chatCtrl', ['$scope', '$rootScope', '$http', '$state', '$ses
     }
     $scope.getChatList();
 
+    $scope.changeUrl = function () {
+        $state.go('home.chatView', {
+            fromUserName: "",
+            toUserName: ""
+        }, {
+            // prevent the events onStart and onSuccess from firing
+            notify: false,
+            // prevent reload of the current state
+            reload: false,
+            // replace the last record when changing the params so you don't hit the back button and get old params
+            location: 'replace'
+        });
+    }
 
     /*Send Message*/
     $scope.sendMessage = function (event) {

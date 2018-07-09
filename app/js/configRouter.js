@@ -32,14 +32,14 @@ ChatApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locat
         controller: 'dashboardCtrl',
         title: 'Dashboard-Chat-App'
     }).state('home.chatView', {
-        url: '/chat/:fromUserId/:toUserId',
+        url: '/chat/:fromUserId/:toUserId/:fromUserName/:toUserName',
         templateUrl: 'app/templates/chat.html',
         resolve: loadSequence('ChatCss', 'HelperCss', 'FontAwesome', 'MaterialCss', 'NgStorageJs', 'AppCtrl', 'ChatCtrl'),
         controller: 'chatCtrl',
         title: 'Chat-Page',
         params: {
-            "fromUserId": null,
-            "toUserId": null
+            "fromUserName": null,
+            "toUserName": null
         }
     });
 

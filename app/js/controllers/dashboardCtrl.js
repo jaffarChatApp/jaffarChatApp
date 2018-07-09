@@ -28,7 +28,9 @@ ChatApp.controller('dashboardCtrl', ['$scope', '$rootScope', '$http', '$state', 
         //$sessionStorage.recieverData = item;
         $state.go('home.chatView', {
             fromUserId: $scope.userData.userId,
-            toUserId: item.userId
+            toUserId: item.userId,
+            fromUserName: $scope.userData.name,
+            toUserName: item.userId.name
         });
     }
 
