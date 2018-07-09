@@ -25,7 +25,7 @@ ChatApp.controller('dashboardCtrl', ['$scope', '$rootScope', '$http', '$state', 
     $scope.getUserList();
 
     $scope.messageView = function (item) {
-        $sessionStorage.recieverData = item;
+        //$sessionStorage.recieverData = item;
         $state.go('home.chatView', {
             fromUserId: $scope.userData.userId,
             toUserId: item.userId
@@ -33,13 +33,11 @@ ChatApp.controller('dashboardCtrl', ['$scope', '$rootScope', '$http', '$state', 
     }
 
     $scope.notifyUser = function () {
-
         OneSignal.push(function () {
             OneSignal.showHttpPrompt();
         });
     }
     $timeout(function () {
-        console.log("ONESIGNAL_HTTP_PROMPT_SHOWN", $sessionStorage.ONESIGNAL_HTTP_PROMPT_SHOWN);
         $scope.notifyUser();
     }, 100);
 

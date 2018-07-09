@@ -36,7 +36,11 @@ ChatApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locat
         templateUrl: 'app/templates/chat.html',
         resolve: loadSequence('ChatCss', 'HelperCss', 'FontAwesome', 'MaterialCss', 'NgStorageJs', 'AppCtrl', 'ChatCtrl'),
         controller: 'chatCtrl',
-        title: 'Chat-Page'
+        title: 'Chat-Page',
+        params: {
+            "fromUserId": null,
+            "toUserId": null
+        }
     });
 
     function loadSequence() {
