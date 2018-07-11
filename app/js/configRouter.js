@@ -37,7 +37,7 @@ ChatApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locat
         resolve: loadSequence('ChatCss', 'HelperCss', 'FontAwesome', 'MaterialCss', 'NgStorageJs', 'AppCtrl', 'ChatCtrl'),
         controller: 'chatCtrl',
         title: 'Chat-Page',
-        params: {
+        /*params: {
             fromUserName: {
                 value: null,
                 squash: true
@@ -46,9 +46,7 @@ ChatApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locat
                 value: null,
                 squash: true
             }
-            //"fromUserName": null,
-            //"toUserName": null
-        }
+        }*/
     });
 
     function loadSequence() {

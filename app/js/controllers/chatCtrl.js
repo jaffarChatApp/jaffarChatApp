@@ -7,8 +7,10 @@ ChatApp.controller('chatCtrl', ['$scope', '$rootScope', '$http', '$state', '$ses
         message: "",
         fromUser: $stateParams.fromUserId,
         toUser: $stateParams.toUserId,
-        senderName: $sessionStorage.userData.name,
-        recieverName: $sessionStorage.recieverData.name,
+        senderName: $stateParams.fromUserName,
+        recieverName: $stateParams.toUserName,
+        //senderName: $sessionStorage.userData.name,
+        //recieverName: $sessionStorage.recieverData.name,
         postedDate: new Date()
     }
 
@@ -61,6 +63,10 @@ ChatApp.controller('chatCtrl', ['$scope', '$rootScope', '$http', '$state', '$ses
             location: 'replace'
         });
     }
+
+    $timeout(function () {
+        $scope.changeUrl();
+    }, 500);
 
     /*Send Message*/
     $scope.sendMessage = function (event) {
